@@ -40,7 +40,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const html = $input.first().json.data;\n\n// تابع استخراج قیمت\nfunction extractPrice(rowName) {\n  const regex = new RegExp(\n    `<tr[^>]*data-market-row=\"${rowName}\"[\\\\s\\\\S]*?<td class=\"nf\">([^<]+)</td>`,\n    \"i\"\n  );\n\n  const match = html.match(regex);\n\n  if (!match) {\n    return null;\n  }\n\n  return match[1].trim();\n}\n\nconst gold18 = extractPrice(\"geram18\");\nconst sekee = extractPrice(\"sekee\");\nconst price_dollar_rl = extractPrice(\"price_dollar_rl\");\n\nreturn [\n  {\n    json: {\n      gold18,\n      sekee,\n      price_dollar_rl\n    }\n  }\n];"
+        "jsCode": "const html = $input.first().json.data;\n\nfunction extractPrice(rowName) {\n  const regex = new RegExp(\n    `<tr[^>]*data-market-row=\"${rowName}\"[\\\\s\\\\S]*?<td class=\"nf\">([^<]+)</td>`,\n    \"i\"\n  );\n\n  const match = html.match(regex);\n\n  if (!match) {\n    return null;\n  }\n\n  return match[1].trim();\n}\n\nconst gold18 = extractPrice(\"geram18\");\nconst sekee = extractPrice(\"sekee\");\nconst price_dollar_rl = extractPrice(\"price_dollar_rl\");\n\nreturn [\n  {\n    json: {\n      gold18,\n      sekee,\n      price_dollar_rl\n    }\n  }\n];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -66,18 +66,11 @@
         -112
       ],
       "id": "0080a16d-5861-49ee-90b4-a0a7fdd23c8c",
-      "name": "Send a text message",
-      "webhookId": "15d146e1-d36c-4778-a8f6-13a14b8bfa5b",
-      "credentials": {
-       "telegramApi": {
-        "id": "your",
-        "name": "Telegram account"
-        }
-      }  
+      "name": "Send a text message"
     },
     {
       "parameters": {
-        "content": "Automated Telegram bot to track 18k Gold, Emami Coin, and USD prices from TGJU.\n",
+        "content": "Automated Telegram bot to track 18k Gold, Emami Coin, and USD prices from TGJU.",
         "height": 112,
         "width": 560
       },
@@ -91,7 +84,6 @@
       "name": "Sticky Note"
     }
   ],
-  "pinData": {},
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -133,11 +125,5 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "dbd556cb-99e3-4e53-9992-22989616771f",
-  "meta": {
-    "instanceId": "5e9051d165719714816ede2a08a1191422c981258e50453407ae0452aa614147"
-  },
-  "nodeGroups": [],
-  "id": "K2zJpxBKmsT6HueC",
-  "tags": []
+  "versionId": "dbd556cb-99e3-4e53-9992-22989616771f"
 }
