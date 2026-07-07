@@ -69,11 +69,11 @@
       "name": "Send a text message",
       "webhookId": "15d146e1-d36c-4778-a8f6-13a14b8bfa5b",
       "credentials": {
-        "telegramApi": {
-          "id": "E7J3Spt77KCYC2qp",
-          "name": "Telegram account"
+       "telegramApi": {
+        "id": "your",
+        "name": "Telegram account"
         }
-      }
+      }  
     },
     {
       "parameters": {
